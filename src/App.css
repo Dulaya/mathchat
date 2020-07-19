@@ -1,0 +1,141 @@
+html {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    background: #f0ece3;
+}
+
+#inputCover {
+    margin: 50px 50px 10px 50px;
+    bottom: 0;
+    text-align: center;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+input[type=text] {
+    border-radius: 5px;
+    height: 20px;
+}
+
+input[type=submit],
+#submitButton {
+    border: 3px solid;
+    border-radius: 10px;
+    border-color: #f0ece3;
+    background: #596e79;
+    color: #f0ece3;
+    font-size: 1.25rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background: #393e46;
+}
+
+.modebar {
+    display: none !important;
+}
+
+#bubbleCover {
+    text-align: center;
+    margin: 0 0 50px 0;
+}
+
+.bubble {
+    font-size: 1rem;
+    border-radius: 10px;
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+.chatHeader {
+    text-align: left;
+}
+
+#deleteButton {
+    margin: 0 0 0 5px;
+    width: 35px;
+    height: 35px;
+    font-size: 1.25rem;
+    border-radius: 50px;
+    border: 0;
+    background: red;
+    color: white;
+    padding: 3px;
+    vertical-align: top;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#userCover {
+    text-align: right;
+    margin: 10px 50px;
+}
+
+#botCover {
+    text-align: left;
+    margin: 10px 50px;
+}
+
+.userChat {
+    display: inline-block;
+    padding: 15px;
+    margin: 0 10px 0 5px;
+    background: #e5edb7;
+}
+
+.botChat {
+    padding: 25px;
+    text-align: left;
+    background: #ddf3f5;
+    display: inline-block;
+    max-width: 50vw;
+}
+
+#botImage,
+#userImage {
+    width: 100px;
+    display: inline-block;
+}
+
+/*Distance*/
+.numberInput {
+    width: 25px;
+}
+
+#distanceGraphCover {
+    text-align: center
+}
+
+#distanceGraph {
+    display: inline-block;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+/*Pythagorean*/
+.triangleOne {
+    text-align: center;
+}
+
+#pythagBlockOne,
+#pythagBlockTwo {
+    display: inline-block;
+}
+
+#pythagBlockOne {
+    vertical-align: top;
+    margin: 75px 0 0 0;
+}
+
+#pythagBlockTwo {
+    text-align: center;
+}
+
+#pythagC {
+    position: relative;
+    top: 65px;
+    z-index: 1;
+}
