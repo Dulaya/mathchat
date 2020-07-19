@@ -2,6 +2,7 @@ import React from 'react';
 import Latex from './components/latex';
 import Distance from './components/distance';
 import Foil from './components/foil';
+import Permutation from './components/permutation';
 import Pythagorean from './components/pythagorean';
 import './App.css';
 
@@ -10,7 +11,7 @@ class Menu extends React.Component{
   render(){
     return(
       <div>
-        Valid Inputs: Menu, Distance, FOIL, Pythagorean
+        Valid Inputs: Menu, Distance, Pythagorean, Permutation, FOIL
       </div>
     )
   }
@@ -50,11 +51,12 @@ class Bubble extends React.Component{
               <div className="bubble botChat" >
                 {this.topic(value) == "menu" ? <Menu /> : null}
                 {this.topic(value) == "distance" ? <Distance /> : null}
+                {this.topic(value) == "permutation" ? <Permutation /> : null}
                 {this.topic(value) == "pythagorean" ? <Pythagorean /> : null}
                 {this.topic(value) == "foil" ? <Foil /> : null}
                 {
                   this.topic(value) != "menu" && this.topic(value) != "distance" && this.topic(value) != "pythagorean" && 
-                  this.topic(value) != "foil"
+                  this.topic(value) != "foil" && this.topic(value) != "permutation"
                     ? "I'm not smart enough to process natural lanuguage :( Please enter a valid input. E.g. Menu, Distance, Pythagorean..." : null
                 }
               </div>
