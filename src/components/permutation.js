@@ -51,7 +51,7 @@ class Permutation extends React.Component {
                 "♠♠{" + (fact(n) /  fact(n - r)) + "}♠♠" + "<br/>"; 
         }
 
-        document.getElementById("foilAnswer").innerHTML = permutation;
+        document.getElementById("permutationAnswer").innerHTML = permutation;
 
         this.setState({ answer: null }) //DON'T remove. Doing so will no rerender MathJax
     }
@@ -64,7 +64,7 @@ class Permutation extends React.Component {
                     ♠♠r=♠♠<input id="rPermutation" className="numberInput" type="text" defaultValue={"r"} />
                     <input type="submit" onClick={this.evaluate} />
                 </Latex>
-                <Latex><div id="foilAnswer" ></div></Latex>
+                <Latex><div id="permutationAnswer" ></div></Latex>
             </div>
         )
     }
