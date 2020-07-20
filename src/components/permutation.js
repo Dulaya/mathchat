@@ -23,11 +23,15 @@ class Permutation extends React.Component {
         var permutation = "";
 
         //Check if input is integer; factorial cannot evaluate non-integer numbers
-        if (Number.isInteger(n)==false || Number.isInteger(r)==false) {permutation = "Factorial must be integer."}
+        if (Number.isInteger(n)==false || Number.isInteger(r)==false) {
+            permutation = "Factorial must be integer/whole number, i.e. ♠♠n♠♠ and ♠♠r♠♠ cannot be characters or decimals numbers." ;
+        }
 
         //Check if number is positoin; factorial cannot evaluate negative numbers
-        else if (n < 0 ||  n - r < 0 || Number.isInteger(n-r)==false) {permutation = "Negative factorial is undefined.";}
-        
+        else if (n < 0 || r < 0 ||  n - r < 0 || Number.isInteger(n-r)==false) {
+            permutation = "Negative factorial is undefined, i.e. ♠♠n♠♠ and ♠♠r♠♠ cannot be negative and ♠♠n♠♠ must be greater than or equal to ♠♠r♠♠." ;
+        }
+
         else {
             permutation = fact(n) / fact(n - r);
             permutation = "Permutation: " + "♠♠{n!} \\over {(n-r)!}♠♠" + "<br/>";
