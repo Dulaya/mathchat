@@ -13,7 +13,8 @@ class Latex extends React.Component {
     renderMath() { window.MathJax.Hub.Queue([ "Typeset", window.MathJax.Hub, this.node.current ]); }
     
     render() {
-      const { text } = this.props;
+      //text is assign but never used?
+      //const { text } = this.props;
       return <div ref={this.node}>{this.props.children}</div>;
     }
   }

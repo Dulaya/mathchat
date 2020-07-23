@@ -4,8 +4,26 @@ html {
     background: #f0ece3;
 }
 
+.modebar {
+    display: none !important;
+}
+
+#menuButtonCover {
+    text-align: center;
+}
+
+#menuButtonCover > button {
+    margin: 5px;
+    background: #f9d56e;
+    border-color: #f3ecc2;
+    color: #595238;
+    border-radius: 5px;
+}
+
+#menuButtonCover > button:hover { background: #eebb4d; }
+
 #inputCover {
-    margin: 50px 50px 10px 50px;
+    margin: 10px 50px 10px 50px;
     bottom: 0;
     text-align: center;
 }
@@ -21,6 +39,7 @@ input[type=text] {
 
 input[type=submit],
 #submitButton {
+    margin: 0 10px;
     border: 2px solid;
     border-radius: 3px;
     border-color: #f0ece3;
@@ -35,8 +54,15 @@ input[type=submit]:hover, #submitButton:hover {
     background: #006a71;
 }
 
-.modebar {
-    display: none !important;
+#userInput {
+    height: 2rem;
+    width: 50%;
+    font-size: 1.5rem;
+}
+
+#submitButton {
+    height: 2rem;
+    font-size: 1.5rem;
 }
 
 #bubbleCover {

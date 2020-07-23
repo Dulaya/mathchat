@@ -13,26 +13,28 @@ class Foil extends React.Component{
     var foil_B = document.getElementById("foilB").value;
     var foil_C = document.getElementById("foilC").value;
     var foil_D = document.getElementById("foilD").value;
+
+    var foil_AC = ""; var foil_AD = ""; var foil_BC = ""; var foil_BD = ""; 
     
-    if (isNaN(foil_A) && isNaN(foil_C)){var foil_AC = foil_A + foil_C}
-    else if (isNaN(foil_A)==false && isNaN(foil_C)==false){var foil_AC = foil_A*foil_C}
-    else if (isNaN(foil_A) && isNaN(foil_C)==false){var foil_AC = foil_C + foil_A}
-    else if (isNaN(foil_A)==false && isNaN(foil_C)){var foil_AC = foil_A + foil_C}
+    if (isNaN(foil_A) && isNaN(foil_C)){foil_AC = foil_A + foil_C}
+    else if (isNaN(foil_A)===false && isNaN(foil_C)===false){foil_AC = foil_A*foil_C}
+    else if (isNaN(foil_A) && isNaN(foil_C)===false){foil_AC = foil_C + foil_A}
+    else if (isNaN(foil_A)===false && isNaN(foil_C)){foil_AC = foil_A + foil_C}
     
-    if (isNaN(foil_A) && isNaN(foil_D)){var foil_AD = foil_A + foil_D}
-    else if (isNaN(foil_A)==false && isNaN(foil_D)==false){var foil_AD = foil_A*foil_D}
-    else if (isNaN(foil_A) && isNaN(foil_D)==false){var foil_AD = foil_D + foil_A}
-    else if (isNaN(foil_A)==false && isNaN(foil_D)){var foil_AD = foil_A + foil_D}
+    if (isNaN(foil_A) && isNaN(foil_D)){foil_AD = foil_A + foil_D}
+    else if (isNaN(foil_A)===false && isNaN(foil_D)===false){foil_AD = foil_A*foil_D}
+    else if (isNaN(foil_A) && isNaN(foil_D)===false){foil_AD = foil_D + foil_A}
+    else if (isNaN(foil_A)===false && isNaN(foil_D)){foil_AD = foil_A + foil_D}
  
-    if (isNaN(foil_B) && isNaN(foil_C)){var foil_BC = foil_B + foil_C}
-    else if (isNaN(foil_B)==false && isNaN(foil_C)==false){var foil_BC = foil_B*foil_C}
-    else if (isNaN(foil_B) && isNaN(foil_C)==false){var foil_BC = foil_C + foil_B}
-    else if (isNaN(foil_B)==false && isNaN(foil_C)){var foil_BC = foil_B + foil_C}
+    if (isNaN(foil_B) && isNaN(foil_C)){foil_BC = foil_B + foil_C}
+    else if (isNaN(foil_B)===false && isNaN(foil_C)===false){foil_BC = foil_B*foil_C}
+    else if (isNaN(foil_B) && isNaN(foil_C)===false){foil_BC = foil_C + foil_B}
+    else if (isNaN(foil_B)===false && isNaN(foil_C)){foil_BC = foil_B + foil_C}
     
-    if (isNaN(foil_B) && isNaN(foil_D)){var foil_BD = foil_B + foil_D}
-    else if (isNaN(foil_B)==false && isNaN(foil_D)==false){var foil_BD = foil_B*foil_D}
-    else if (isNaN(foil_B) && isNaN(foil_D)==false){var foil_BD = foil_D + foil_B}
-    else if (isNaN(foil_B)==false && isNaN(foil_D)){var foil_BD = foil_B + foil_D}
+    if (isNaN(foil_B) && isNaN(foil_D)){foil_BD = foil_B + foil_D}
+    else if (isNaN(foil_B)===false && isNaN(foil_D)===false){foil_BD = foil_B*foil_D}
+    else if (isNaN(foil_B) && isNaN(foil_D)===false){foil_BD = foil_D + foil_B}
+    else if (isNaN(foil_B)===false && isNaN(foil_D)){foil_BD = foil_B + foil_D}
     
     var foil_Answer_Char = '' ; var foil_Answer_Num = 0;
     
@@ -45,12 +47,14 @@ class Foil extends React.Component{
     if (isNaN(foil_BD)) {foil_Answer_Char += "+" + foil_BD}
     else {foil_Answer_Num += foil_BD}
     
-    if (foil_Answer_Num == 0 && foil_Answer_Char != ""){var foil_Answer = foil_Answer_Char}
-    else if (foil_Answer_Num != 0 && foil_Answer_Char == ""){var foil_Answer = foil_Answer_Num}
-    else if (foil_Answer_Num == 0 && foil_Answer_Char == ""){var foil_Answer = foil_Answer_Num}
-    else {var foil_Answer = foil_Answer_Char + "+" + foil_Answer_Num}
+    var foil_Answer = "" ;
+
+    if (foil_Answer_Num === 0 && foil_Answer_Char !== ""){ foil_Answer = foil_Answer_Char }
+    else if (foil_Answer_Num !== 0 && foil_Answer_Char === ""){ foil_Answer = foil_Answer_Num }
+    else if (foil_Answer_Num === 0 && foil_Answer_Char === ""){ foil_Answer = foil_Answer_Num }
+    else { foil_Answer = foil_Answer_Char + "+" + foil_Answer_Num }
     
-    console.log(foil_Answer)
+    console.log(foil_Answer) //Only use to prevent warning. Remove later
     
     this.setState({answer: null}) //DON'T remove. Doing so will no rerender MathJax
     document.getElementById("foilAnswer").innerHTML = "♠♠(" + foil_A + "+" + foil_B + ")(" + foil_C + "+" + foil_D + ")=" + foil_A  + "\\times " + foil_C + "+" + foil_A + "\\times " + foil_D + "+" + foil_B + "\\times " + foil_C + "+" + foil_B + "\\times " + foil_D + "♠♠<br/><br/>"  

@@ -12,7 +12,7 @@ class Permutation extends React.Component {
     evaluate = () => {
         //Evaluate factorial
         function fact(x) {
-            if(x == 0) { return 1; }
+            if(x === 0) { return 1; }
             if(x < 0 ) { return undefined; }
             for(var i = x; --i; ) { x *= i; }
             return x;
@@ -23,32 +23,32 @@ class Permutation extends React.Component {
         var permutation = "";
 
         //Check if input is integer; factorial cannot evaluate non-integer numbers
-        if (Number.isInteger(n)==false || Number.isInteger(r)==false) {
+        if (Number.isInteger(n)===false || Number.isInteger(r)===false) {
             permutation = "Factorial must be integer/whole number, i.e. ♠♠n♠♠ and ♠♠r♠♠ cannot be characters or decimals numbers." ;
         }
 
         //Check if number is positoin; factorial cannot evaluate negative numbers
-        else if (n < 0 || r < 0 ||  n - r < 0 || Number.isInteger(n-r)==false) {
+        else if (n < 0 || r < 0 ||  n - r < 0 || Number.isInteger(n-r)===false) {
             permutation = "Negative factorial is undefined, i.e. ♠♠n♠♠ and ♠♠r♠♠ cannot be negative and ♠♠n♠♠ must be greater than or equal to ♠♠r♠♠." ;
         }
 
         else {
             permutation = fact(n) / fact(n - r);
-            permutation = "Permutation: " + "♠♠{n!} \\over {(n-r)!}♠♠" + "<br/>";
+            permutation = "Permutation:  ♠♠{n!} \\over {(n-r)!}♠♠ <br/>";
             permutation += "Substitute ♠♠n=" + n + "♠♠ and ♠♠ r=" + r + "♠♠ into the equation:" + 
-                "♠♠{" + n + "!} \\over {(" + n + "-" + r + ")}!♠♠" + "<br/>";
+                "♠♠{" + n + "!} \\over {(" + n + "-" + r + ")}!♠♠ <br/>";
             permutation += 
                 "Evaluate the parentheses of the denomitator:" +
-                "♠♠{" + n + "!} \\over {(" + n + "-" + r + ")}!♠♠" + "♠♠=♠♠" + 
-                "♠♠{" + n + "!} \\over {" + (n - r) + "}!♠♠" + "<br/>";
+                "♠♠{" + n + "!} \\over {(" + n + "-" + r + ")}!♠♠ ♠♠=♠♠" + 
+                "♠♠{" + n + "!} \\over {" + (n - r) + "}!♠♠ <br/>";
             permutation += 
                 "Perform the factorials:" + 
-                "♠♠{" + n + "!} \\over {" + (n - r) + "}!♠♠" + "♠♠=♠♠" +
-                "♠♠{" + fact(n) + "} \\over {" + fact(n - r) + "}♠♠" + "<br/>";
+                "♠♠{" + n + "!} \\over {" + (n - r) + "}!♠♠ ♠♠=♠♠" +
+                "♠♠{" + fact(n) + "} \\over {" + fact(n - r) + "}♠♠ <br/>";
             permutation += 
                 "Divide numerator by demoninator:" + 
-                "♠♠{" + fact(n) + "} \\over {" + fact(n - r) + "}♠♠" + "♠♠=♠♠" + 
-                "♠♠{" + (fact(n) /  fact(n - r)) + "}♠♠" + "<br/>"; 
+                "♠♠{" + fact(n) + "} \\over {" + fact(n - r) + "}♠♠ ♠♠=♠♠" + 
+                "♠♠{" + (fact(n) /  fact(n - r)) + "}♠♠ <br/>"; 
         }
 
         document.getElementById("permutationAnswer").innerHTML = permutation;

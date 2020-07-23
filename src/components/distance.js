@@ -8,21 +8,21 @@ class Distance extends React.Component{
         var y1 = Number( document.getElementById("distanceY1").value )
         var y2 = Number( document.getElementById("distanceY2").value )
         
-        if (x1=="" || x2=="" || y1=="" || y2==""){
-          if (x1==""){document.getElementById("distanceX1").value=0}
-          if (x2==""){document.getElementById("distanceX2").value=0}
-          if (y1==""){document.getElementById("distanceY1").value=0}
-          if (y2==""){document.getElementById("distanceY2").value=0}
+        if (x1==="" || x2==="" || y1==="" || y2===""){
+          if (x1===""){document.getElementById("distanceX1").value=0}
+          if (x2===""){document.getElementById("distanceX2").value=0}
+          if (y1===""){document.getElementById("distanceY1").value=0}
+          if (y2===""){document.getElementById("distanceY2").value=0}
         }
     
         var distance = Math.round( Math.sqrt((x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)) *100 ) / 100
         var output = "<br/>"
-        output += "Distance Formula: " + "♠♠\\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}♠♠" + "<br/><br/>" 
-        output += "Plug ♠♠x_1="+x1+",x_2="+x2+",y_1="+y1+"♠♠ and ♠♠y_2="+y2+"♠♠ into the Distance Formula as: " + "♠♠" +"\\sqrt{("+x2+"-"+x1+")^2 + ("+y2+"-"+y1+")^2}" + "♠♠" + "<br/><br/>" 
-        output += "Perform operation according to <a href='#'>PEMDAS</a> starting with parentheses: " + "♠♠" +"\\sqrt{("+x2+"-"+x1+")^2 + ("+y2+"-"+y1+")^2} \\space = \\space" + "♠♠" + "♠♠" +"\\sqrt{("+(x2-x1)+")^2 + ("+(y2-y1)+")^2}" + "♠♠" + "<br/><br/>" 
-        output += "Evaluate the exponents: " + "♠♠" +"\\sqrt{("+(x2-x1)+")^2 + ("+(y2-y1)+")^2} \\space = \\space" + "♠♠" + "♠♠" +"\\sqrt{"+(x2-x1)*(x2-x1) + "+" + (y2-y1)*(y2-y1)+"}" + "♠♠" + "<br/><br/>" 
-        output += "Add the two terms: " + "♠♠" +"\\sqrt{"+(x2-x1)*(x2-x1) + "+" + (y2-y1)*(y2-y1)+"} \\space = \\space" + "♠♠" + "♠♠" +"\\sqrt{"+((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1))+"}" + "♠♠" + "<br/><br/>" 
-        output += "Lastly, evaluate the square root: " + "♠♠" +"\\sqrt{"+((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1))+"} \\space = \\space" + "♠♠" + "♠♠" +distance+ "♠♠" + "<br/><br/>" 
+        output += "Distance Formula: ♠♠\\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}♠♠ <br/><br/>" 
+        output += "Plug ♠♠x_1="+x1+",x_2="+x2+",y_1="+y1+"♠♠ and ♠♠y_2="+y2+"♠♠ into the Distance Formula as:  ♠♠ \\sqrt{("+x2+"-"+x1+")^2 + ("+y2+"-"+y1+")^2} ♠♠ <br/><br/>" 
+        output += "Perform operation according to <a href='#'>PEMDAS</a> starting with parentheses: ♠♠ \\sqrt{("+x2+"-"+x1+")^2 + ("+y2+"-"+y1+")^2} \\space = \\space ♠♠ ♠♠ \\sqrt{("+(x2-x1)+")^2 + ("+(y2-y1)+")^2} ♠♠ <br/><br/>" 
+        output += "Evaluate the exponents:  ♠♠ \\sqrt{("+(x2-x1)+")^2 + ("+(y2-y1)+")^2} \\space = \\space ♠♠ ♠♠ \\sqrt{"+(x2-x1)*(x2-x1) + "+" + (y2-y1)*(y2-y1)+"} ♠♠ <br/><br/>" 
+        output += "Add the two terms:  ♠♠ \\sqrt{"+(x2-x1)*(x2-x1) + "+" + (y2-y1)*(y2-y1)+"} \\space = \\space ♠♠ ♠♠ \\sqrt{"+((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1))+"} ♠♠ <br/><br/>" 
+        output += "Lastly, evaluate the square root:  ♠♠ \\sqrt{"+((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1))+"} \\space = \\space ♠♠ ♠♠" +distance+ "♠♠ <br/><br/>" 
   
         document.getElementById("distanceAnswer").innerHTML = output
   

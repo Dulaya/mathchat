@@ -12,7 +12,7 @@ class Combination extends React.Component {
     evaluate = () => {
         //Evaluate factorial
         function fact(x) {
-            if(x == 0) { return 1; }
+            if(x === 0) { return 1; }
             if(x < 0 ) { return undefined; }
             for(var i = x; --i; ) { x *= i; }
             return x;
@@ -23,36 +23,36 @@ class Combination extends React.Component {
         var combination = "";
 
         //Check if input is integer; factorial cannot evaluate non-integer numbers
-        if (Number.isInteger(n)==false || Number.isInteger(r)==false) {
+        if (Number.isInteger(n)===false || Number.isInteger(r)===false) {
             combination = "Factorial must be integer/whole number, i.e. ♠♠n♠♠ and ♠♠r♠♠ cannot be characters or decimals numbers." ;
         }
 
         //Check if number is positoin; factorial cannot evaluate negative numbers
-        else if (n < 0 || r < 0 ||  n - r < 0 || Number.isInteger(n-r)==false) {
+        else if (n < 0 || r < 0 ||  n - r < 0 || Number.isInteger(n-r)===false) {
             combination = "Negative factorial is undefined, i.e. ♠♠n♠♠ and ♠♠r♠♠ cannot be negative and ♠♠n♠♠ must be greater than or equal to ♠♠r♠♠." ;
         }
 
         else {
             combination = fact(n) / fact(n - r);
-            combination = "Combination: " + "♠♠{n!} \\over {(n-r)!r!}♠♠" + "<br/>";
+            combination = "Combination:  ♠♠{n!} \\over {(n-r)!r!}♠♠ <br/>";
             combination += "Substitute ♠♠n=" + n + "♠♠ and ♠♠ r=" + r + "♠♠ into the equation:" + 
-                "♠♠{" + n + "!} \\over {(" + n + "-" + r + ")!" + r + "!}" + "♠♠" + "<br/>";
+                "♠♠{" + n + "!} \\over {(" + n + "-" + r + ")!" + r + "!} ♠♠ <br/>";
             combination += 
                 "Evaluate the parentheses of the denomitator:" +
-                "♠♠{" + n + "!} \\over {(" + n + "-" + r + ")!" + r + "!}" + "♠♠" + "♠♠=♠♠" + 
-                "♠♠{" + n + "!} \\over {" + (n - r) + "!" + r +"!}♠♠" + "<br/>";
+                "♠♠{" + n + "!} \\over {(" + n + "-" + r + ")!" + r + "!} ♠♠ ♠♠=♠♠" + 
+                "♠♠{" + n + "!} \\over {" + (n - r) + "!" + r +"!}♠♠ <br/>";
             combination += 
                 "Perform the factorials:" + 
-                "♠♠{" + n + "!} \\over {" + (n - r) + "!" + r + "!}♠♠" + "♠♠=♠♠" +
-                "♠♠{" + fact(n) + "} \\over {" + fact(n - r) + "\\times" + fact(r) + "}♠♠" + "<br/>";
+                "♠♠{" + n + "!} \\over {" + (n - r) + "!" + r + "!}♠♠ ♠♠=♠♠" +
+                "♠♠{" + fact(n) + "} \\over {" + fact(n - r) + "\\times" + fact(r) + "}♠♠ <br/>";
             combination += 
                 "Multiply denominators together:" + 
-                "♠♠{" + fact(n) + "} \\over {" + fact(n - r) + "\\times" + fact(r) + "}♠♠" + "♠♠=♠♠" +
-                "♠♠{" + fact(n) + "} \\over {" + ( fact(n - r) * fact(r) ) + "}♠♠" + "<br/>"; 
+                "♠♠{" + fact(n) + "} \\over {" + fact(n - r) + "\\times" + fact(r) + "}♠♠ ♠♠=♠♠" +
+                "♠♠{" + fact(n) + "} \\over {" + ( fact(n - r) * fact(r) ) + "}♠♠ <br/>"; 
             combination += 
                 "Divide numerator by demoninator:" + 
-                "♠♠{" + fact(n) + "} \\over {" + ( fact(n - r) * fact(r) ) + "}♠♠" + "♠♠=♠♠" + 
-                "♠♠{" + ( fact(n) /  ( fact(n - r) * fact(r) ) ) + "}♠♠" + "<br/>"; 
+                "♠♠{" + fact(n) + "} \\over {" + ( fact(n - r) * fact(r) ) + "}♠♠ ♠♠=♠♠" + 
+                "♠♠{" + ( fact(n) /  ( fact(n - r) * fact(r) ) ) + "}♠♠ <br/>"; 
         }
 
         document.getElementById("combinationAnswer").innerHTML = combination;
