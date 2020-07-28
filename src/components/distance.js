@@ -19,7 +19,7 @@ class Distance extends React.Component{
         var output = "<br/>"
         output += "Distance Formula: ♠♠\\sqrt{(x_2-x_1)^2 + (y_2-y_1)^2}♠♠ <br/><br/>" 
         output += "Plug ♠♠x_1="+x1+",x_2="+x2+",y_1="+y1+"♠♠ and ♠♠y_2="+y2+"♠♠ into the Distance Formula as:  ♠♠ \\sqrt{("+x2+"-"+x1+")^2 + ("+y2+"-"+y1+")^2} ♠♠ <br/><br/>" 
-        output += "Perform operation according to <a href='#'>PEMDAS</a> starting with parentheses: ♠♠ \\sqrt{("+x2+"-"+x1+")^2 + ("+y2+"-"+y1+")^2} \\space = \\space ♠♠ ♠♠ \\sqrt{("+(x2-x1)+")^2 + ("+(y2-y1)+")^2} ♠♠ <br/><br/>" 
+        output += "Perform operation according to PEMDAS starting with parentheses: ♠♠ \\sqrt{("+x2+"-"+x1+")^2 + ("+y2+"-"+y1+")^2} \\space = \\space ♠♠ ♠♠ \\sqrt{("+(x2-x1)+")^2 + ("+(y2-y1)+")^2} ♠♠ <br/><br/>" 
         output += "Evaluate the exponents:  ♠♠ \\sqrt{("+(x2-x1)+")^2 + ("+(y2-y1)+")^2} \\space = \\space ♠♠ ♠♠ \\sqrt{"+(x2-x1)*(x2-x1) + "+" + (y2-y1)*(y2-y1)+"} ♠♠ <br/><br/>" 
         output += "Add the two terms:  ♠♠ \\sqrt{"+(x2-x1)*(x2-x1) + "+" + (y2-y1)*(y2-y1)+"} \\space = \\space ♠♠ ♠♠ \\sqrt{"+((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1))+"} ♠♠ <br/><br/>" 
         output += "Lastly, evaluate the square root:  ♠♠ \\sqrt{"+((x2-x1)*(x2-x1) + (y2-y1)*(y2-y1))+"} \\space = \\space ♠♠ ♠♠" +distance+ "♠♠ <br/><br/>" 

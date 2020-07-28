@@ -1,4 +1,5 @@
 import React from 'react';
+import Calculator from './components/calculator';
 import Distance from './components/distance';
 import Foil from './components/foil';
 import Combination from './components/combination';
@@ -13,7 +14,7 @@ class Menu extends React.Component {
   render() {
     return (
       <div>
-        Valid Inputs: Menu, Distance, Pythagorean, Combination, Pemdas, Permutation, Quadratic, FOIL
+        Valid Inputs: Menu, Calculator, Distance, Pythagorean, Combination, Pemdas, Permutation, Quadratic, FOIL
       </div>
     )
   }
@@ -59,6 +60,7 @@ class Bubble extends React.Component {
                   //if (this.topic(value) === "menu") {<Menu />} else {null}
                 }
                 {this.topic(value) === "menu" ? <Menu /> : null}
+                {this.topic(value) === "calculator" ? <Calculator /> : null}
                 {this.topic(value) === "distance" ? <Distance /> : null}
                 {this.topic(value) === "combination" ? <Combination /> : null}
                 {this.topic(value) === "permutation" ? <Permutation /> : null}
@@ -68,9 +70,10 @@ class Bubble extends React.Component {
                 {this.topic(value) === "foil" ? <Foil /> : null}
                 {
                   //if user input does not equal to specific keyword, output menu message
-                  this.topic(value) !== "menu" && this.topic(value) !== "distance" && this.topic(value) !== "pythagorean" &&
-                    this.topic(value) !== "combination" && this.topic(value) !== "pemdas" && this.topic(value) !== "permutation" && 
-                    this.topic(value) !== "quadratic"  && this.topic(value) !== "foil"
+                  this.topic(value) !== "menu" && this.topic(value) !== "calculator" && this.topic(value) !== "distance" &&
+                    this.topic(value) !== "pythagorean" &&
+                    this.topic(value) !== "combination" && this.topic(value) !== "pemdas" && this.topic(value) !== "permutation" &&
+                    this.topic(value) !== "quadratic" && this.topic(value) !== "foil"
                     ? "I'm not smart enough to process natural lanuguage :( Please enter a valid input. E.g. Menu, Distance, Pythagorean..." : null
                 }
               </div>
@@ -154,6 +157,7 @@ class Chat extends React.Component {
           delete={this.delete}
         />
         <div id="menuButtonCover">
+          <button onClick={this.distanceClicked.bind(this, "Calculator")}>Calculator</button>
           <button onClick={this.distanceClicked.bind(this, "Distance")}>Distance</button>
           <button onClick={this.distanceClicked.bind(this, "Pythagorean")}>Pythagorean</button>
           <button onClick={this.distanceClicked.bind(this, "Permutation")}>Permutation</button>
