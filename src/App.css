@@ -202,3 +202,9 @@ input[type=submit]:hover,
     top: 65px;
     z-index: 1;
 }
+
+/*Unit Circle*/
+#unitCircle {
+    width: 50vw;
+    height: 50vw;
+}

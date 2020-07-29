@@ -84,6 +84,13 @@ class Calculator extends React.Component {
                 document.getElementById('calculatorOutput').style.borderColor = 'red';
             }
 
+            //Check if infinity or NaN is inside input. If so, give warning since it'll crash math.evaluate()
+            else if (input.includes('Infinity') || input.includes('NaN')){
+                document.getElementById('calculatorWarning').innerHTML = 'Invalid Input';
+                document.getElementById('calculatorOutput').style.border = 'solid 1px';
+                document.getElementById('calculatorOutput').style.borderColor = 'red';
+            }
+
             else {
                 //math.js is required because using eval() is NOT a good practice.
                 document.getElementById('calculatorOutput').innerHTML = math.evaluate(input);

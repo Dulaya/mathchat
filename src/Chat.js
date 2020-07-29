@@ -7,6 +7,7 @@ import Pemdas from './components/pemdas';
 import Permutation from './components/permutation';
 import Pythagorean from './components/pythagorean';
 import Quadratic from './components/quadratic';
+import Unitcircle from './components/unitcircle';
 import './App.css';
 
 class Menu extends React.Component {
@@ -14,7 +15,7 @@ class Menu extends React.Component {
   render() {
     return (
       <div>
-        Valid Inputs: Menu, Calculator, Distance, Pythagorean, Combination, Pemdas, Permutation, Quadratic, FOIL
+        Valid Inputs: Menu, Calculator, Distance, Pythagorean, Combination, Pemdas, Permutation, Quadratic, FOIL, Unit Circle
       </div>
     )
   }
@@ -68,12 +69,13 @@ class Bubble extends React.Component {
                 {this.topic(value) === "pythagorean" ? <Pythagorean /> : null}
                 {this.topic(value) === "quadratic" ? <Quadratic /> : null}
                 {this.topic(value) === "foil" ? <Foil /> : null}
+                {this.topic(value) === "unitcircle" ? <Unitcircle /> : null}
                 {
                   //if user input does not equal to specific keyword, output menu message
                   this.topic(value) !== "menu" && this.topic(value) !== "calculator" && this.topic(value) !== "distance" &&
                     this.topic(value) !== "pythagorean" &&
                     this.topic(value) !== "combination" && this.topic(value) !== "pemdas" && this.topic(value) !== "permutation" &&
-                    this.topic(value) !== "quadratic" && this.topic(value) !== "foil"
+                    this.topic(value) !== "quadratic" && this.topic(value) !== "foil" && this.topic(value) !== "unitcircle"
                     ? "I'm not smart enough to process natural lanuguage :( Please enter a valid input. E.g. Menu, Distance, Pythagorean..." : null
                 }
               </div>
@@ -166,6 +168,7 @@ class Chat extends React.Component {
           <button onClick={this.distanceClicked.bind(this, "Pemdas")}>PEMDAS</button>
           <button onClick={this.distanceClicked.bind(this, "Quadratic")}>Quadratic</button>
           <button onClick={this.distanceClicked.bind(this, "FOIL")}>FOIL</button>
+          <button onClick={this.distanceClicked.bind(this, "Unit circle")}>Unitcircle</button>
         </div>
         <div id="inputCover">
           <input type="text" id="userInput" onKeyDown={this.enterPressed} placeholder="e.g. Menu, Distance, Pythagorean..." />
