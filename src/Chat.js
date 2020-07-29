@@ -152,6 +152,7 @@ class Chat extends React.Component {
   render() { //
     return (
       <div id="chatView">
+        <h1>MATH CHAT</h1>
         <Bubble
           item={this.state.current_chat}
           delete={this.delete}
