@@ -160,6 +160,7 @@ class Chat extends React.Component {
           delete={this.delete}
         />
         <div id="menuButtonCover">
+          <button onClick={this.distanceClicked.bind(this, "Menu")}>Menu</button>
           <button onClick={this.distanceClicked.bind(this, "Calculator")}>Calculator</button>
           <button onClick={this.distanceClicked.bind(this, "Distance")}>Distance</button>
           <button onClick={this.distanceClicked.bind(this, "Pythagorean")}>Pythagorean</button>

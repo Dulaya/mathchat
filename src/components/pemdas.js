@@ -18,9 +18,9 @@ class Pemdas extends React.Component {
         /******************************************************************************/
 
         //Output solution to DOM
-        var pemdas_answer = "<br/> Solve: ♠♠ 5 + {(1+2)^2 *4 \\over 2} - 9 ♠♠ <br/>";
-        pemdas_answer += "Step 1: Evaluate terms inside parenthesis: ♠♠ 5 + {(3)^2 * 4 \\over 2} - 9 ♠♠ <br/>"
-        pemdas_answer += "Step 2: Evaluate the exponent: ♠♠ 5 + {9 *4 \\over 2} - 9 ♠♠ <br/>"
+        var pemdas_answer = "<br/> Solve: ♠♠ 5 + {(1+2)^2 \\times 4 \\over 2} - 9 ♠♠ <br/>";
+        pemdas_answer += "Step 1: Evaluate terms inside parenthesis: ♠♠ 5 + {(3)^2 \\times 4 \\over 2} - 9 ♠♠ <br/>"
+        pemdas_answer += "Step 2: Evaluate the exponent: ♠♠ 5 + {9 \\times 4 \\over 2} - 9 ♠♠ <br/>"
         pemdas_answer += "Step 3: Evaluate the multiplication: ♠♠ 5 + {36 \\over 2} - 9 ♠♠ <br/>"
         pemdas_answer += "Step 4: Evaluate the division: ♠♠ 5 + 18 - 9 ♠♠ <br/>"
         pemdas_answer += "Step 5: Evaluate the addition: ♠♠ 23 - 9 ♠♠ <br/>"
