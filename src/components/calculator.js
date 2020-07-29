@@ -12,7 +12,8 @@ class Calculator extends React.Component {
         /******************************************************************************/
     }
 
-    evaluate = () => {
+    componentDidMount() {
+
         /******************************************************************************/
         this.setState({ answer: null }) //DON'T remove. Doing so will no rerender MathJax
         /******************************************************************************/
@@ -32,7 +33,7 @@ class Calculator extends React.Component {
                     //If input is * or /, check if the last input is a NOT number. If so, then input is INVALID because * and / can only come after a number.
                     //Otherwise evaluate will return error.
                     if (isNaN(Number(document.getElementById('calculatorOutput').innerHTML[document.getElementById('calculatorOutput').innerHTML.length - 1]))) {
-                        alert("Invalid Input")
+                        document.getElementById('calculatorWarning').innerHTML = 'Invalid Input';
                         document.getElementById('calculatorOutput').style.border = 'solid 1px';
                         document.getElementById('calculatorOutput').style.borderColor = 'red';
                     }
@@ -59,6 +60,7 @@ class Calculator extends React.Component {
             document.getElementById('calculatorOutput').innerHTML = '';
             input = '';
             document.getElementById('calculatorOutput').style.border = 'solid 0px';
+            document.getElementById('calculatorWarning').innerHTML = '';
         }
 
         //Perform Operation
@@ -69,14 +71,15 @@ class Calculator extends React.Component {
             input = input.replace(/\*+/g, '*') //Replace repeating ****** with a single *
 
             if (input.includes('/*') || input.includes('*/')) {
-                alert('Invalid Input');
+                document.getElementById('calculatorWarning').innerHTML = 'Invalid Input';
+
                 document.getElementById('calculatorOutput').style.border = 'solid 1px';
                 document.getElementById('calculatorOutput').style.borderColor = 'red';
             }
 
             //If the last char of input is NOT a number, the input is invalid.
             else if (isNaN(input[input.length - 1])) {
-                alert('Invalid Input')
+                document.getElementById('calculatorWarning').innerHTML = 'Invalid Input';
                 document.getElementById('calculatorOutput').style.border = 'solid 1px';
                 document.getElementById('calculatorOutput').style.borderColor = 'red';
             }
@@ -85,6 +88,7 @@ class Calculator extends React.Component {
                 //math.js is required because using eval() is NOT a good practice.
                 document.getElementById('calculatorOutput').innerHTML = math.evaluate(input);
                 document.getElementById('calculatorOutput').style.border = 'solid 0px';
+                document.getElementById('calculatorWarning').innerHTML = '';
             }
 
             input = '';
@@ -94,8 +98,9 @@ class Calculator extends React.Component {
 
     render() {
         return (
-            <div onClick={this.evaluate.bind(this)} >
+            <div>
                 <div id='calculatorOutput'></div>
+                <div id='calculatorWarning'></div>
                 <div>
                     <button id='calculator7' className='calculatorButton'>7</button>
                     <button id='calculator8' className='calculatorButton'>8</button>
