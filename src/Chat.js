@@ -166,12 +166,12 @@ class Chat extends React.Component {
           <button onClick={this.distanceClicked.bind(this, "Menu")}>Menu</button>
           <button onClick={this.distanceClicked.bind(this, "Calculator")}>Calculator</button>
           <button onClick={this.distanceClicked.bind(this, "Distance")}>Distance</button>
+          <button onClick={this.distanceClicked.bind(this, "Logarithm")}>Logarithm</button>
           <button onClick={this.distanceClicked.bind(this, "Pythagorean")}>Pythagorean</button>
           <button onClick={this.distanceClicked.bind(this, "Permutation")}>Permutation</button>
           <button onClick={this.distanceClicked.bind(this, "Combination")}>Combination</button>
           <button onClick={this.distanceClicked.bind(this, "Pemdas")}>PEMDAS</button>
           <button onClick={this.distanceClicked.bind(this, "Quadratic")}>Quadratic</button>
-          <button onClick={this.distanceClicked.bind(this, "Logarithm")}>Logarithm</button>
           <button onClick={this.distanceClicked.bind(this, "FOIL")}>FOIL</button>
           <button onClick={this.distanceClicked.bind(this, "Unit circle")}>Unitcircle</button>
         </div>
