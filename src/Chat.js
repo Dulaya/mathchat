@@ -3,6 +3,7 @@ import Calculator from './components/calculator';
 import Distance from './components/distance';
 import Foil from './components/foil';
 import Combination from './components/combination';
+import Logarithm from './components/logarithm';
 import Pemdas from './components/pemdas';
 import Permutation from './components/permutation';
 import Pythagorean from './components/pythagorean';
@@ -15,7 +16,7 @@ class Menu extends React.Component {
   render() {
     return (
       <div>
-        Valid Inputs: Menu, Calculator, Distance, Pythagorean, Combination, Pemdas, Permutation, Quadratic, FOIL, Unit Circle
+        Valid Inputs: Menu, Calculator, Distance, Pythagorean, Combination, Logarithm, Pemdas, Permutation, Quadratic, FOIL, Unit Circle
       </div>
     )
   }
@@ -64,6 +65,7 @@ class Bubble extends React.Component {
                 {this.topic(value) === "calculator" ? <Calculator /> : null}
                 {this.topic(value) === "distance" ? <Distance /> : null}
                 {this.topic(value) === "combination" ? <Combination /> : null}
+                {this.topic(value) === "logarithm" ? <Logarithm /> : null}
                 {this.topic(value) === "permutation" ? <Permutation /> : null}
                 {this.topic(value) === "pemdas" ? <Pemdas /> : null}
                 {this.topic(value) === "pythagorean" ? <Pythagorean /> : null}
@@ -74,7 +76,8 @@ class Bubble extends React.Component {
                   //if user input does not equal to specific keyword, output menu message
                   this.topic(value) !== "menu" && this.topic(value) !== "calculator" && this.topic(value) !== "distance" &&
                     this.topic(value) !== "pythagorean" &&
-                    this.topic(value) !== "combination" && this.topic(value) !== "pemdas" && this.topic(value) !== "permutation" &&
+                    this.topic(value) !== "combination" && this.topic(value) !== "logarithm" && 
+                    this.topic(value) !== "pemdas" && this.topic(value) !== "permutation" &&
                     this.topic(value) !== "quadratic" && this.topic(value) !== "foil" && this.topic(value) !== "unitcircle"
                     ? "I'm not smart enough to process natural lanuguage :( Please enter a valid input. E.g. Menu, Distance, Pythagorean..." : null
                 }
