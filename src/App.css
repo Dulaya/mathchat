@@ -4,19 +4,94 @@ html {
     background: #f0ece3;
 }
 
+body {
+    margin: 0;
+}
+
+@media screen and (max-width: 480px) {
+    #userCover, #botCover {
+        margin: 10px 10px;
+    }
+    #menuButtonCover {
+        display: none;
+    }
+
+    #deleteButton {
+        font-size: 9px;
+        width: 15px;
+        height: 15px
+    }
+
+    #botImage,
+    #userImage {
+        width: 50px;
+    }
+}
+
+@media screen and (min-width: 481px) and (max-width: 900px) {
+    #userCover, #botCover {
+        margin: 10px 25px;
+    }
+    #deleteButton {
+        font-size: 13px;
+        width: 20px;
+        height: 20px
+    }
+
+    #botImage,
+    #userImage {
+        width: 75px;
+    }
+}
+
+@media screen and (min-width: 901px) {
+    #userCover, #botCover {
+        margin: 10px 50px;
+    }
+
+    #deleteButton {
+        font-size: 15px;
+        width: 25px;
+        height: 25px
+    }
+
+    #botImage,
+    #userImage {
+        width: 100px;
+    }
+}
+
 .modebar {
     display: none !important;
 }
 
 h1 {
+    margin-top: 0;
     text-align: center;
     background: #4f8a8b;
     color: #eeeeee;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
+#bottomCover {
+    background: #dfd3c3;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#toggleButton {
+    background: #318fb5;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    padding: 2.5px 10px;
+}
+
 #menuButtonCover {
     text-align: center;
+    padding: 0 0 25px 0;
 }
 
 #menuButtonCover>button {
@@ -33,7 +108,6 @@ h1 {
 
 #inputCover {
     margin: 10px 50px 10px 50px;
-    bottom: 0;
     text-align: center;
 }
 
@@ -67,7 +141,6 @@ input[type=submit]:hover,
 }
 
 #userInput {
-    margin: 0 0 50px 0;
     height: 2rem;
     width: 50%;
     font-size: 1.5rem;
@@ -80,12 +153,11 @@ input[type=submit]:hover,
 
 #bubbleCover {
     text-align: center;
-    margin: 0 0 50px 0;
+    margin: 0 0 125px 0;
 }
 
 .bubble {
     font-size: 1rem;
-    border-radius: 10px;
     display: inline-block;
     vertical-align: top;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
@@ -95,11 +167,34 @@ input[type=submit]:hover,
     text-align: left;
 }
 
+#topicTitle {
+    color: white;
+    display: inline-block;
+    float: left;
+    margin: 0px 10px;
+}
+
+#deleteButtonCover {
+    border-radius: 10px 10px 0 0;
+    text-align: left;
+    background: #df5e88;
+    margin: 0 10px 0 5px;
+    padding: 2.5px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+#deleteButtonCoverTwo {
+    border-radius: 10px 10px 0 0;
+    text-align: right;
+    background: #7fdbda;
+    margin: 0 10px 0 5px;
+    padding: 2.5px 0;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+
+
 #deleteButton {
-    margin: 0 0 0 5px;
-    width: 35px;
-    height: 35px;
-    font-size: 1.25rem;
+    margin: 3px;
     border-radius: 50px;
     border: 0;
     background: red;
@@ -111,15 +206,19 @@ input[type=submit]:hover,
 
 #userCover {
     text-align: right;
-    margin: 10px 50px;
+}
+
+#convoCover {
+    display: inline-block;
+    vertical-align: top;
 }
 
 #botCover {
     text-align: left;
-    margin: 10px 50px;
 }
 
 .userChat {
+    border-radius: 0 0 10px 10px;
     display: inline-block;
     padding: 15px;
     margin: 0 10px 0 5px;
@@ -127,7 +226,9 @@ input[type=submit]:hover,
 }
 
 .botChat {
+    border-radius: 0 0 10px 10px;
     padding: 25px;
+    margin: 0 10px 0 5px;
     text-align: left;
     background: #ddf3f5;
     display: inline-block;
@@ -136,9 +237,14 @@ input[type=submit]:hover,
 
 #botImage,
 #userImage {
-    width: 100px;
     display: inline-block;
 }
+
+/*Derivative*/
+#derivativeEquation {
+    width: 150px;
+}
+
 
 /*Distance*/
 .numberInput {
@@ -156,7 +262,8 @@ input[type=submit]:hover,
 
 /*Calculator*/
 #calculatorOutput {
-    border-radius: 2.5px;;
+    border-radius: 2.5px;
+    ;
     padding: 2.5px;
     height: 20px;
     width: 210px;

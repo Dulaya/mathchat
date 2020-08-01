@@ -9,6 +9,9 @@ import Permutation from './components/permutation';
 import Pythagorean from './components/pythagorean';
 import Quadratic from './components/quadratic';
 import Unitcircle from './components/unitcircle';
+
+import { Pi, Gravity, Euler } from './trivial/trivial';
+
 import './App.css';
 
 class Menu extends React.Component {
@@ -16,7 +19,7 @@ class Menu extends React.Component {
   render() {
     return (
       <div>
-        Valid Inputs: Menu, Calculator, Distance, Pythagorean, Combination, Logarithm, Pemdas, Permutation, Quadratic, FOIL, Unit Circle
+        Valid Inputs: Menu, Calculator, Distance, Pythagorean, Combination, Logarithm, Pemdas, Permutation, Pi, Quadratic, FOIL, Unit Circle
       </div>
     )
   }
@@ -43,46 +46,64 @@ class Bubble extends React.Component {
       <div id="bubbleCover">
         <div id="botCover">
           <img id="botImage" src="images/robot.svg" alt="Bot: " />
-          <div className="bubble botChat" >Hello, World! Ask me a math topic. Example: distance, pythagorean...</div>
+          <div className="bubble botChat" style={{ borderRadius: "10px" }}>Hello, World! Ask me a math topic. Example: distance, pythagorean...</div>
         </div>
         {this.props.item.map((value, key) =>
           <div className="" key={key} >
             <div className="chatHeader">
               <div id="userCover">
-                <button id="deleteButton" className="userDeleteButton" key={key} onClick={this.delete.bind(this, key)} >X</button>
-                <div className="bubble userChat">{value}</div>
+                <div id="convoCover">
+                  <div id="deleteButtonCover">
+                    <button id="deleteButton" className="userDeleteButton" key={key} onClick={this.delete.bind(this, key)} >X</button>
+                  </div>
+                  <div className="bubble userChat">{value}</div>
+                </div>
                 <img id="userImage" src="images/confused_girl.png" alt="You: " />
               </div>
             </div>
             <div id="botCover">
               <img id="botImage" src="images/robot.svg" alt="Bot: " />
-              <div className="bubble botChat" >
-                {
-                  //Conditional rendering component based on user input
-                  //if (this.topic(value) === "menu") {<Menu />} else {null}
-                }
-                {this.topic(value) === "menu" ? <Menu /> : null}
-                {this.topic(value) === "calculator" ? <Calculator /> : null}
-                {this.topic(value) === "distance" ? <Distance /> : null}
-                {this.topic(value) === "combination" ? <Combination /> : null}
-                {this.topic(value) === "logarithm" ? <Logarithm /> : null}
-                {this.topic(value) === "permutation" ? <Permutation /> : null}
-                {this.topic(value) === "pemdas" ? <Pemdas /> : null}
-                {this.topic(value) === "pythagorean" ? <Pythagorean /> : null}
-                {this.topic(value) === "quadratic" ? <Quadratic /> : null}
-                {this.topic(value) === "foil" ? <Foil /> : null}
-                {this.topic(value) === "unitcircle" ? <Unitcircle /> : null}
-                {
-                  //if user input does not equal to specific keyword, output menu message
-                  this.topic(value) !== "menu" && this.topic(value) !== "calculator" && this.topic(value) !== "distance" &&
-                    this.topic(value) !== "pythagorean" &&
-                    this.topic(value) !== "combination" && this.topic(value) !== "logarithm" && 
-                    this.topic(value) !== "pemdas" && this.topic(value) !== "permutation" &&
-                    this.topic(value) !== "quadratic" && this.topic(value) !== "foil" && this.topic(value) !== "unitcircle"
-                    ? "I'm not smart enough to process natural lanuguage :( Please enter a valid input. E.g. Menu, Distance, Pythagorean..." : null
-                }
+              <div id="convoCover">
+                <div id="deleteButtonCoverTwo">
+                  <div id="topicTitle">{this.topic(value)}</div>
+                  <button id="deleteButton" className="botDeletebutton" key={key} onClick={this.delete.bind(this, key)} >X</button>
+                </div>
+                <div className="bubble botChat" >
+                  {
+                    //Conditional rendering component based on user input
+                    //if (this.topic(value) === "menu") {<Menu />} else {null}
+                  }
+                  {this.topic(value) === "menu" ? <Menu /> : null}
+                  {this.topic(value) === "calculator" ? <Calculator /> : null}
+                  {this.topic(value) === "distance" ? <Distance /> : null}
+                  {this.topic(value) === "combination" ? <Combination /> : null}
+                  {this.topic(value) === "logarithm" ? <Logarithm /> : null}
+                  {this.topic(value) === "pemdas" ? <Pemdas /> : null}
+                  {this.topic(value) === "permutation" ? <Permutation /> : null}
+                  {this.topic(value) === "pythagorean" ? <Pythagorean /> : null}
+                  {this.topic(value) === "quadratic" ? <Quadratic /> : null}
+                  {this.topic(value) === "foil" ? <Foil /> : null}
+                  {this.topic(value) === "unitcircle" ? <Unitcircle /> : null}
+
+                  {this.topic(value) === "e" ? <Euler trivialInput={this.topic(value)} /> : null}
+                  {this.topic(value) === "gravity" ? <Gravity trivialInput={this.topic(value)} /> : null}
+                  {this.topic(value) === "pi" ? <Pi trivialInput={this.topic(value)} /> : null}
+
+                  {
+                    //if user input does not equal to specific keyword, output menu message
+                    this.topic(value) !== "menu" && this.topic(value) !== "calculator" && this.topic(value) !== "distance" &&
+                      this.topic(value) !== "pythagorean" &&
+                      this.topic(value) !== "combination" && this.topic(value) !== "logarithm" &&
+                      this.topic(value) !== "pemdas" && this.topic(value) !== "permutation" &&
+                      this.topic(value) !== "quadratic" && this.topic(value) !== "foil" && this.topic(value) !== "unitcircle" &&
+
+                      this.topic(value) !== "e" && this.topic(value) !== "gravity" && this.topic(value) !== "pi"
+
+
+                      ? "I'm not smart enough to process natural lanuguage :( Please enter a valid input. E.g. Menu, Distance, Pythagorean..." : null
+                  }
+                </div>
               </div>
-              <button id="deleteButton" className="botDeletebutton" key={key} onClick={this.delete.bind(this, key)} >X</button>
             </div>
 
           </div>)}
@@ -96,11 +117,12 @@ class Chat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current_chat: [] //{id:,value:},
+      current_chat: [], //{id:,value:},
+      toggle: 'show',
     }
   }
 
-  distanceClicked = (subject) => {
+  conceptButton = (subject) => {
     document.getElementById("userInput").value = subject;
     this.submit()
   }
@@ -154,32 +176,53 @@ class Chat extends React.Component {
     }));
   }
 
+  toggle = () => {
+    if (this.state.toggle === 'show') {
+      document.getElementById("inputCover").style.display = "none";
+      document.getElementById("menuButtonCover").style.display = "none";
+      document.getElementById("toggleButton").innerHTML = "show";
+      this.setState({ toggle: 'hide' });
+    }
+    else {
+      document.getElementById("inputCover").style.display = "block";
+      document.getElementById("menuButtonCover").style.display = "block";
+      document.getElementById("toggleButton").innerHTML = "hide";
+      this.setState({ toggle: 'show' });
+    }
+  }
+
   render() { //
     return (
-      <div id="chatView">
-        <h1>MATH CHAT</h1>
-        <Bubble
-          item={this.state.current_chat}
-          delete={this.delete}
-        />
-        <div id="menuButtonCover">
-          <button onClick={this.distanceClicked.bind(this, "Menu")}>Menu</button>
-          <button onClick={this.distanceClicked.bind(this, "Calculator")}>Calculator</button>
-          <button onClick={this.distanceClicked.bind(this, "Distance")}>Distance</button>
-          <button onClick={this.distanceClicked.bind(this, "Logarithm")}>Logarithm</button>
-          <button onClick={this.distanceClicked.bind(this, "Pythagorean")}>Pythagorean</button>
-          <button onClick={this.distanceClicked.bind(this, "Permutation")}>Permutation</button>
-          <button onClick={this.distanceClicked.bind(this, "Combination")}>Combination</button>
-          <button onClick={this.distanceClicked.bind(this, "Pemdas")}>PEMDAS</button>
-          <button onClick={this.distanceClicked.bind(this, "Quadratic")}>Quadratic</button>
-          <button onClick={this.distanceClicked.bind(this, "FOIL")}>FOIL</button>
-          <button onClick={this.distanceClicked.bind(this, "Unit circle")}>Unitcircle</button>
+      <div>
+        <div id="chatView">
+          <h1>MATH CHAT</h1>
+          <Bubble
+            item={this.state.current_chat}
+            delete={this.delete}
+          />
         </div>
-        <div id="inputCover">
-          <input type="text" id="userInput" onKeyDown={this.enterPressed} placeholder="e.g. Menu, Distance, Pythagorean..." />
-          <button id="submitButton" onClick={this.submit}>Enter</button>
+        <div id="bottomCover">
+          <button id="toggleButton" onClick={this.toggle.bind(this)}>Hide</button>
+          <div id="inputCover">
+            <input type="text" id="userInput" onKeyDown={this.enterPressed} placeholder="e.g. Menu, Distance, Pythagorean..." />
+            <button id="submitButton" onClick={this.submit}>Enter</button>
+          </div>
+          <div id="menuButtonCover">
+            <button onClick={this.conceptButton.bind(this, "Menu")}>Menu</button>
+            <button onClick={this.conceptButton.bind(this, "Calculator")}>Calculator</button>
+            <button onClick={this.conceptButton.bind(this, "Distance")}>Distance</button>
+            <button onClick={this.conceptButton.bind(this, "Logarithm")}>Logarithm</button>
+            <button onClick={this.conceptButton.bind(this, "Pythagorean")}>Pythagorean</button>
+            <button onClick={this.conceptButton.bind(this, "Permutation")}>Permutation</button>
+            <button onClick={this.conceptButton.bind(this, "Combination")}>Combination</button>
+            <button onClick={this.conceptButton.bind(this, "Pemdas")}>PEMDAS</button>
+            <button onClick={this.conceptButton.bind(this, "Pi")}>Pi</button>
+            <button onClick={this.conceptButton.bind(this, "Quadratic")}>Quadratic</button>
+            <button onClick={this.conceptButton.bind(this, "FOIL")}>FOIL</button>
+            <button onClick={this.conceptButton.bind(this, "Unit circle")}>Unitcircle</button>
+          </div>
+          <div id="warning"></div>
         </div>
-        <div id="warning"></div>
       </div>
     )
   }
