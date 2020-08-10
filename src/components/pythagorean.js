@@ -30,12 +30,12 @@ class Pythagorean extends React.Component{
           <div>{this.props.topic} </div>
           <div className="triangleOne">
             <div id="pythagBlockOne">
-              <input type="text" id={this.rand_b} className="numberInput pythagoreanBInput" placeholder="b"/>
+              <input type="text" id={this.rand_b} className="numberInput pythagoreanBInput" defaultValue={4}/>
             </div>
             <div id="pythagBlockTwo">
               <Latex><div id="pythagC" >♠♠c♠♠</div></Latex>
               <img style={{width:"200px"}} src="images/triangle.svg" alt="triangle" /><br/>
-              <input type="text" id={this.rand_a} className="numberInput pythagoreanAInput" placeholder="a"/><br/>
+              <input type="text" id={this.rand_a} className="numberInput pythagoreanAInput" defaultValue={3}/><br/>
               <input type="submit" onClick={this.evaluate} />
             </div>
           </div>

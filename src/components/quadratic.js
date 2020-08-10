@@ -85,8 +85,8 @@ class Quadratic extends React.Component {
                 <Latex>
                     ♠♠ax^2 + bx + c = 0 ♠♠<br />
                     <input id="quadraticA" className="numberInput" type="text" defaultValue={1} />♠♠x^2+♠♠
-                    <input id="quadraticB" className="numberInput" type="text" defaultValue={2} />♠♠x+♠♠
-                    <input id="quadraticC" className="numberInput" type="text" defaultValue={3} />♠♠=0♠♠
+                    <input id="quadraticB" className="numberInput" type="text" defaultValue={-4} />♠♠x+♠♠
+                    <input id="quadraticC" className="numberInput" type="text" defaultValue={4} />♠♠=0♠♠
                     <input type="submit" onClick={this.evaluate} />
 
                 </Latex>

@@ -46,7 +46,9 @@ class Bubble extends React.Component {
       <div id="bubbleCover">
         <div id="botCover">
           <img id="botImage" src="images/robot.svg" alt="Bot: " />
-          <div className="bubble botChat" style={{ borderRadius: "10px" }}>Hello, World! Ask me a math topic. Example: distance, pythagorean...</div>
+          <div className="bubble botChat" style={{ borderRadius: "10px" }}>
+            Hello, World! Math Chat is a tool for helping students with math homework. Ask me a math topic. Example: distance, pythagorean, logarithm...
+            </div>
         </div>
         {this.props.item.map((value, key) =>
           <div className="" key={key} >
@@ -100,7 +102,7 @@ class Bubble extends React.Component {
                       this.topic(value) !== "e" && this.topic(value) !== "gravity" && this.topic(value) !== "pi"
 
 
-                      ? "I'm not smart enough to process natural lanuguage :( Please enter a valid input. E.g. Menu, Distance, Pythagorean..." : null
+                      ? "Please enter a valid input. E.g. Menu, Distance, Pythagorean..." : null
                   }
                 </div>
               </div>
@@ -229,4 +231,4 @@ class Chat extends React.Component {
 
 };
 
-export default Chat;
+export {Menu, Bubble, Chat};

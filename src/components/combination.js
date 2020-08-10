@@ -64,8 +64,8 @@ class Combination extends React.Component {
             <div>
                 <Latex>
                     ♠♠ _nC_r \to C(n,r)= ♠♠ ♠♠ n! \over (n-r)!r! ♠♠<br />
-                    ♠♠n=♠♠<input id="nCombination" className="numberInput" type="text" defaultValue={"n"} />
-                    ♠♠r=♠♠<input id="rCombination" className="numberInput" type="text" defaultValue={"r"} />
+                    ♠♠n=♠♠<input id="nCombination" className="numberInput" type="text" defaultValue={5} />
+                    ♠♠r=♠♠<input id="rCombination" className="numberInput" type="text" defaultValue={4} />
                     <input type="submit" onClick={this.evaluate} />
                 </Latex>
                 <Latex><div id="combinationAnswer" ></div></Latex>

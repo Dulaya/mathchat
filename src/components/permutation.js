@@ -60,8 +60,8 @@ class Permutation extends React.Component {
             <div>
                 <Latex>
                     ♠♠ _nP_r \to P(n,r)= ♠♠ ♠♠ n! \over (n-r)! ♠♠<br />
-                    ♠♠n=♠♠<input id="nPermutation" className="numberInput" type="text" defaultValue={"n"} />
-                    ♠♠r=♠♠<input id="rPermutation" className="numberInput" type="text" defaultValue={"r"} />
+                    ♠♠n=♠♠<input id="nPermutation" className="numberInput" type="text" defaultValue={5} />
+                    ♠♠r=♠♠<input id="rPermutation" className="numberInput" type="text" defaultValue={4} />
                     <input type="submit" onClick={this.evaluate} />
                 </Latex>
                 <Latex><div id="permutationAnswer" ></div></Latex>
