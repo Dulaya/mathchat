@@ -56,7 +56,7 @@ class Bubble extends React.Component {
               <div id="userCover">
                 <div id="convoCover">
                   <div id="deleteButtonCover">
-                    <button id="deleteButton" className="userDeleteButton" key={key} onClick={this.delete.bind(this, key)} >X</button>
+                    <button id="deleteButton" className="userDeleteButton" key={key} onClick={this.delete.bind(this, key)} >✘</button>
                   </div>
                   <div className="bubble userChat">{value}</div>
                 </div>
@@ -68,7 +68,7 @@ class Bubble extends React.Component {
               <div id="convoCover">
                 <div id="deleteButtonCoverTwo">
                   <div id="topicTitle">{this.topic(value)}</div>
-                  <button id="deleteButton" className="botDeletebutton" key={key} onClick={this.delete.bind(this, key)} >X</button>
+                  <button id="deleteButton" className="botDeletebutton" key={key} onClick={this.delete.bind(this, key)} >✘</button>
                 </div>
                 <div className="bubble botChat" >
                   {
@@ -119,8 +119,8 @@ class Chat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current_chat: [], //{id:,value:},
-      toggle: 'show',
+      current_chat: ['pythagorean'], //{id:,value:},
+      toggle: 'Show Menu',
     }
   }
 
@@ -179,17 +179,17 @@ class Chat extends React.Component {
   }
 
   toggle = () => {
-    if (this.state.toggle === 'show') {
+    if (this.state.toggle === 'Show Menu') {
       document.getElementById("inputCover").style.display = "none";
       document.getElementById("menuButtonCover").style.display = "none";
-      document.getElementById("toggleButton").innerHTML = "show";
-      this.setState({ toggle: 'hide' });
+      document.getElementById("toggleButton").innerHTML = "Show Menu";
+      this.setState({ toggle: 'Hide Menu' });
     }
     else {
       document.getElementById("inputCover").style.display = "block";
       document.getElementById("menuButtonCover").style.display = "block";
-      document.getElementById("toggleButton").innerHTML = "hide";
-      this.setState({ toggle: 'show' });
+      document.getElementById("toggleButton").innerHTML = "Hide Menu";
+      this.setState({ toggle: 'Show Menu' });
     }
   }
 
@@ -203,27 +203,28 @@ class Chat extends React.Component {
             delete={this.delete}
           />
         </div>
-        <div id="bottomCover">
-          <button id="toggleButton" onClick={this.toggle.bind(this)}>Hide</button>
-          <div id="inputCover">
-            <input type="text" id="userInput" onKeyDown={this.enterPressed} placeholder="e.g. Menu, Distance, Pythagorean..." />
-            <button id="submitButton" onClick={this.submit}>Enter</button>
-          </div>
-          <div id="menuButtonCover">
-            <button onClick={this.conceptButton.bind(this, "Menu")}>Menu</button>
-            <button onClick={this.conceptButton.bind(this, "Calculator")}>Calculator</button>
-            <button onClick={this.conceptButton.bind(this, "Distance")}>Distance</button>
-            <button onClick={this.conceptButton.bind(this, "Logarithm")}>Logarithm</button>
-            <button onClick={this.conceptButton.bind(this, "Pythagorean")}>Pythagorean</button>
-            <button onClick={this.conceptButton.bind(this, "Permutation")}>Permutation</button>
-            <button onClick={this.conceptButton.bind(this, "Combination")}>Combination</button>
-            <button onClick={this.conceptButton.bind(this, "Pemdas")}>PEMDAS</button>
-            <button onClick={this.conceptButton.bind(this, "Pi")}>Pi</button>
-            <button onClick={this.conceptButton.bind(this, "Quadratic")}>Quadratic</button>
-            <button onClick={this.conceptButton.bind(this, "FOIL")}>FOIL</button>
-            <button onClick={this.conceptButton.bind(this, "Unit circle")}>Unitcircle</button>
-          </div>
-          <div id="warning"></div>
+        <div id='bottomCoverOuter'>
+        <div id='bottomCover'>
+            <div id="inputCover">
+              <input type="text" id="userInput" onKeyDown={this.enterPressed} placeholder="   e.g. Menu, Distance, Pythagorean..." />
+              <button id="submitButton" onClick={this.submit}>Enter</button>
+            </div>
+            <div id="menuButtonCover">
+              <button onClick={this.conceptButton.bind(this, "Menu")}>Menu</button>
+              <button onClick={this.conceptButton.bind(this, "Calculator")}>Calculator</button>
+              <button onClick={this.conceptButton.bind(this, "Distance")}>Distance</button>
+              <button onClick={this.conceptButton.bind(this, "Logarithm")}>Logarithm</button>
+              <button onClick={this.conceptButton.bind(this, "Pythagorean")}>Pythagorean</button>
+              <button onClick={this.conceptButton.bind(this, "Permutation")}>Permutation</button>
+              <button onClick={this.conceptButton.bind(this, "Combination")}>Combination</button>
+              <button onClick={this.conceptButton.bind(this, "Pemdas")}>PEMDAS</button>
+              <button onClick={this.conceptButton.bind(this, "Pi")}>Pi</button>
+              <button onClick={this.conceptButton.bind(this, "Quadratic")}>Quadratic</button>
+              <button onClick={this.conceptButton.bind(this, "FOIL")}>FOIL</button>
+              <button onClick={this.conceptButton.bind(this, "Unit circle")}>Unitcircle</button>
+            </div>
+            <div id="warning"></div>
+        </div>
         </div>
       </div>
     )
@@ -231,4 +232,4 @@ class Chat extends React.Component {
 
 };
 
-export {Menu, Bubble, Chat};
+export { Menu, Bubble, Chat };
