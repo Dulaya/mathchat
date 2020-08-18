@@ -85,7 +85,7 @@ h1 {
     width: 100vw;
     bottom: 0;
     position: fixed;
-    text-align:center;
+    text-align: center;
     padding: 10px 0;
 }
 
@@ -115,16 +115,15 @@ h1 {
 
 #menuButtonCover>button {
     margin: 10px 5px 0 5px;
-    background: #f9d56e;
-    border-color: #f3ecc2;
+    background: none;
     color: #595238;
-    border:1px solid;
-    border-color:white;
+    border: 2px solid;
+    border-color: white;
     border-radius: 25px;
 }
 
 #menuButtonCover>button:hover {
-    background: #eebb4d;
+    background-image: radial-gradient(circle 297px at 8% 45%, rgba(245, 234, 176, 1) 0%, rgba(133, 239, 212, 1) 100.7%);
 }
 
 #inputCover {
@@ -165,7 +164,7 @@ input[type=submit]:hover,
     height: 2rem;
     width: 50%;
     font-size: 1.5rem;
-    border-radius:100px;
+    border-radius: 100px;
 }
 
 #submitButton {
@@ -205,7 +204,8 @@ input[type=submit]:hover,
     margin: 0 10px 0 5px;
     padding: 2.5px 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    background-image: linear-gradient( 109.6deg,  rgba(245,95,152,1) 11.2%, rgba(254,148,136,1) 100.2% );}
+    background-image: linear-gradient(109.6deg, rgba(245, 95, 152, 1) 11.2%, rgba(254, 148, 136, 1) 100.2%);
+}
 
 #deleteButtonCoverTwo {
     border-radius: 10px 10px 0 0;
@@ -214,7 +214,7 @@ input[type=submit]:hover,
     margin: 0 10px 0 5px;
     padding: 2.5px 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-    background-image: radial-gradient( circle 1158px at 6.4% 48.8%,  rgba(195,241,245,1) 0%, rgba(255,255,255,1) 90.2% );
+    background-image: radial-gradient(circle 1158px at 6.4% 48.8%, rgba(195, 241, 245, 1) 0%, rgba(255, 255, 255, 1) 90.2%);
 }
 
 
