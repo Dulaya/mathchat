@@ -119,7 +119,7 @@ class Chat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current_chat: ['pythagorean'], //{id:,value:},
+      current_chat: ['calculator'], 
       toggle: 'Show Menu',
     }
   }
@@ -197,7 +197,7 @@ class Chat extends React.Component {
     return (
       <div>
         <div id="chatView">
-          <h1>MATH CHAT</h1>
+          <h1>mαth chαt</h1>
           <Bubble
             item={this.state.current_chat}
             delete={this.delete}
