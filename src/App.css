@@ -205,6 +205,8 @@ input[type=submit]:hover,
     padding: 2.5px 0;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     background-image: linear-gradient(109.6deg, rgba(245, 95, 152, 1) 11.2%, rgba(254, 148, 136, 1) 100.2%);
+    background-image: linear-gradient(89.9deg, rgba(208, 246, 255, 1) 0.1%, rgba(255, 237, 237, 1) 47.9%, rgba(255, 255, 231, 1) 100.2%);
+
 }
 
 #deleteButtonCoverTwo {
@@ -246,7 +248,8 @@ input[type=submit]:hover,
     display: inline-block;
     padding: 15px;
     margin: 0 10px 0 5px;
-    background: #e5edb7;
+    background-image: linear-gradient(89.9deg, rgba(208, 246, 255, 1) 0.1%, rgba(255, 237, 237, 1) 47.9%, rgba(255, 255, 231, 1) 100.2%);
+
 }
 
 .botChat {
@@ -254,7 +257,7 @@ input[type=submit]:hover,
     padding: 25px;
     margin: 0 10px 0 5px;
     text-align: left;
-    background: #ddf3f5;
+    background: #f4f6ff;
     display: inline-block;
     max-width: 50vw;
 }
@@ -287,12 +290,10 @@ input[type=submit]:hover,
 /*Calculator*/
 #calculatorOutput {
     border-radius: 2.5px;
-    ;
     padding: 2.5px;
     height: 20px;
     width: 210px;
     margin: 2.5px;
-    background: white;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 

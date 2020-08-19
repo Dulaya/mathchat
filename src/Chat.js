@@ -90,6 +90,7 @@ class Bubble extends React.Component {
                   {this.topic(value) === "e" ? <Euler trivialInput={this.topic(value)} /> : null}
                   {this.topic(value) === "gravity" ? <Gravity trivialInput={this.topic(value)} /> : null}
                   {this.topic(value) === "pi" ? <Pi trivialInput={this.topic(value)} /> : null}
+                  {this.topic(value) === "π" ? <Pi trivialInput={this.topic(value)} /> : null}
 
                   {
                     //if user input does not equal to specific keyword, output menu message
@@ -99,7 +100,8 @@ class Bubble extends React.Component {
                       this.topic(value) !== "pemdas" && this.topic(value) !== "permutation" &&
                       this.topic(value) !== "quadratic" && this.topic(value) !== "foil" && this.topic(value) !== "unitcircle" &&
 
-                      this.topic(value) !== "e" && this.topic(value) !== "gravity" && this.topic(value) !== "pi"
+                      this.topic(value) !== "e" && this.topic(value) !== "gravity" && this.topic(value) !== "pi" && 
+                      this.topic(value) !== "π"
 
 
                       ? "Please enter a valid input. E.g. Menu, Distance, Pythagorean..." : null
@@ -218,7 +220,7 @@ class Chat extends React.Component {
               <button onClick={this.conceptButton.bind(this, "Permutation")}>Permutation</button>
               <button onClick={this.conceptButton.bind(this, "Combination")}>Combination</button>
               <button onClick={this.conceptButton.bind(this, "Pemdas")}>PEMDAS</button>
-              <button onClick={this.conceptButton.bind(this, "Pi")}>Pi</button>
+              <button onClick={this.conceptButton.bind(this, "π")}>π</button>
               <button onClick={this.conceptButton.bind(this, "Quadratic")}>Quadratic</button>
               <button onClick={this.conceptButton.bind(this, "FOIL")}>FOIL</button>
               <button onClick={this.conceptButton.bind(this, "Unit circle")}>Unitcircle</button>
