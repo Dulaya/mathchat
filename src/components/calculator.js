@@ -13,7 +13,6 @@ class Calculator extends React.Component {
     }
 
     componentDidMount() {
-
         /******************************************************************************/
         this.setState({ answer: null }) //DON'T remove. Doing so will no rerender MathJax
         /******************************************************************************/
@@ -85,7 +84,7 @@ class Calculator extends React.Component {
             }
 
             //Check if infinity or NaN is inside input. If so, give warning since it'll crash math.evaluate()
-            else if (input.includes('Infinity') || input.includes('NaN')){
+            else if (input.includes('Infinity') || input.includes('NaN')) {
                 document.getElementById('calculatorWarning').innerHTML = 'Invalid Input';
                 document.getElementById('calculatorOutput').style.border = 'solid 1px';
                 document.getElementById('calculatorOutput').style.borderColor = 'red';
@@ -103,9 +102,21 @@ class Calculator extends React.Component {
     }
 
 
+
+
     render() {
+        const calculatorStyle = {
+            background: 'white',
+            backgroundImage: 'radial-gradient( circle farthest-corner at 1.3% 2.8%,  rgba(239,249,249,1) 0%, rgba(182,199,226,1) 100.2% )',
+            borderRadius: '5px',
+            boxShadow: '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)',
+            margin: '10px',
+            padding: '5px',
+            position: 'fixed',
+        };
+
         return (
-            <div>
+            <div style={calculatorStyle} >
                 <div id='calculatorOutput'></div>
                 <div id='calculatorWarning'></div>
                 <div>

@@ -1,5 +1,7 @@
 import React from 'react';
-import Calculator from './components/calculator';
+
+import Tools from './components/tools';
+
 import Distance from './components/distance';
 import Foil from './components/foil';
 import Combination from './components/combination';
@@ -76,7 +78,6 @@ class Bubble extends React.Component {
                     //if (this.topic(value) === "menu") {<Menu />} else {null}
                   }
                   {this.topic(value) === "menu" ? <Menu /> : null}
-                  {this.topic(value) === "calculator" ? <Calculator /> : null}
                   {this.topic(value) === "distance" ? <Distance /> : null}
                   {this.topic(value) === "combination" ? <Combination /> : null}
                   {this.topic(value) === "logarithm" ? <Logarithm /> : null}
@@ -94,13 +95,12 @@ class Bubble extends React.Component {
 
                   {
                     //if user input does not equal to specific keyword, output menu message
-                    this.topic(value) !== "menu" && this.topic(value) !== "calculator" && this.topic(value) !== "distance" &&
-                      this.topic(value) !== "pythagorean" &&
+                    this.topic(value) !== "menu" && this.topic(value) !== "distance" && this.topic(value) !== "pythagorean" &&
                       this.topic(value) !== "combination" && this.topic(value) !== "logarithm" &&
                       this.topic(value) !== "pemdas" && this.topic(value) !== "permutation" &&
                       this.topic(value) !== "quadratic" && this.topic(value) !== "foil" && this.topic(value) !== "unitcircle" &&
 
-                      this.topic(value) !== "e" && this.topic(value) !== "gravity" && this.topic(value) !== "pi" && 
+                      this.topic(value) !== "e" && this.topic(value) !== "gravity" && this.topic(value) !== "pi" &&
                       this.topic(value) !== "π"
 
 
@@ -121,8 +121,9 @@ class Chat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current_chat: ['calculator'], 
-      toggle: 'Show Menu',
+      current_chat: [],
+      toolButton: 'fas fa-bars fa-2x',
+      toggleCalculator: 'hide'
     }
   }
 
@@ -180,40 +181,53 @@ class Chat extends React.Component {
     }));
   }
 
-  toggle = () => {
-    if (this.state.toggle === 'Show Menu') {
-      document.getElementById("inputCover").style.display = "none";
-      document.getElementById("menuButtonCover").style.display = "none";
-      document.getElementById("toggleButton").innerHTML = "Show Menu";
-      this.setState({ toggle: 'Hide Menu' });
+  //Toggle calculator between opacity 1 and 0.
+  toggleCalculator = () => {
+    if (this.state.toggleCalculator === 'show') {
+      document.getElementById('toolCover').style.transition = 'opacity 1s, width 1s';
+      document.getElementById('toolCover').style.position = 'absolute';
+      document.getElementById('toolCover').style.opacity = '0';
+      document.getElementById('toolCover').style.zIndex = '-1';
+      this.setState({ toggleCalculator: 'hide', toolButton: 'fas fa-bars fa-2x' });
     }
     else {
-      document.getElementById("inputCover").style.display = "block";
-      document.getElementById("menuButtonCover").style.display = "block";
-      document.getElementById("toggleButton").innerHTML = "Hide Menu";
-      this.setState({ toggle: 'Show Menu' });
+      document.getElementById('toolCover').style.transition = 'opacity 1s, width 1s';
+      document.getElementById('toolCover').style.position = 'static';
+      document.getElementById('toolCover').style.opacity = '1';
+      document.getElementById('toolCover').style.zIndex = '1';
+      this.setState({ toggleCalculator: 'show', toolButton: 'fas fa-times fa-2x' });
     }
   }
+
+  //Clear all chats, i.e. empty state
+  clear = () => { this.setState({ current_chat: [] }) }
 
   render() { //
     return (
       <div>
         <div id="chatView">
-          <h1>mαth chαt</h1>
+          <div id='header'>
+            <i className={this.state.toolButton} onClick={this.toggleCalculator.bind(this)} style={{ display: 'inline-block', margin: '5px', cursor: 'pointer' }}></i>
+            <h1>mαth chαt</h1>
+          </div>
+          <div id='toolCover' style={{ opacity: '0', }}>
+            <Tools />
+          </div>
+
           <Bubble
             item={this.state.current_chat}
             delete={this.delete}
           />
         </div>
         <div id='bottomCoverOuter'>
-        <div id='bottomCover'>
+          <div id='bottomCover'>
             <div id="inputCover">
               <input type="text" id="userInput" onKeyDown={this.enterPressed} placeholder="   e.g. Menu, Distance, Pythagorean..." />
-              <button id="submitButton" onClick={this.submit}>Enter</button>
+              <button id="submitButton" onClick={this.submit}><i className="fas fa-search fa-sm"></i></button>
+              <button id="submitButton" onClick={this.clear} style={{ background: 'red' }}><i className="far fa-trash-alt fa-sm"></i></button>
             </div>
             <div id="menuButtonCover">
               <button onClick={this.conceptButton.bind(this, "Menu")}>Menu</button>
-              <button onClick={this.conceptButton.bind(this, "Calculator")}>Calculator</button>
               <button onClick={this.conceptButton.bind(this, "Distance")}>Distance</button>
               <button onClick={this.conceptButton.bind(this, "Logarithm")}>Logarithm</button>
               <button onClick={this.conceptButton.bind(this, "Pythagorean")}>Pythagorean</button>
@@ -226,7 +240,7 @@ class Chat extends React.Component {
               <button onClick={this.conceptButton.bind(this, "Unit circle")}>Unitcircle</button>
             </div>
             <div id="warning"></div>
-        </div>
+          </div>
         </div>
       </div>
     )

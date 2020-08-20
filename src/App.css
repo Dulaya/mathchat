@@ -72,13 +72,21 @@ body {
     display: none !important;
 }
 
-h1 {
-    margin-top: 0;
+#header {
+    margin: 0;
     text-align: center;
-    background: #4f8a8b;
     color: #eeeeee;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    display: flex;
+    position: fixed;
     background-image: radial-gradient(circle farthest-corner at 10% 20%, rgba(0, 95, 104, 1) 0%, rgba(15, 156, 168, 1) 90%);
+    top: 0;
+    width: 100%;
+}
+
+#header>h1 {
+    margin: 0;
+    width: 100%;
 }
 
 #bottomCoverOuter {
@@ -86,13 +94,13 @@ h1 {
     bottom: 0;
     position: fixed;
     text-align: center;
-    padding: 10px 0;
+    z-index: 2;
 }
 
 #bottomCover {
     padding: 10px 50px;
-    border-radius: 100px;
-    display: inline-block;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+
     background-image: linear-gradient(89.9deg, rgba(208, 246, 255, 1) 0.1%, rgba(255, 237, 237, 1) 47.9%, rgba(255, 255, 231, 1) 100.2%);
 }
 
@@ -144,20 +152,20 @@ input[type=text] {
 
 input[type=submit],
 #submitButton {
-    margin: 0 10px;
+    margin: 0 0 0 10px;
     border: 2px solid;
     border-radius: 3px;
     border-color: #f0ece3;
     background: #24a19c;
     color: #f0ece3;
     font-size: 1.25rem;
+    background-image: linear-gradient(109.6deg, rgba(102, 203, 149, 1) 11.2%, rgba(39, 210, 175, 1) 98.7%);
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
 
 input[type=submit]:hover,
 #submitButton:hover {
     cursor: pointer;
-    background: #006a71;
 }
 
 #userInput {
@@ -176,7 +184,7 @@ input[type=submit]:hover,
 
 #bubbleCover {
     text-align: center;
-    margin: 0 0 125px 0;
+    margin: 42px 0 125px 0;
 }
 
 .bubble {
@@ -226,6 +234,7 @@ input[type=submit]:hover,
     border: 0;
     background: red;
     color: white;
+    border: 1px solid;
     vertical-align: top;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
 }
@@ -254,12 +263,13 @@ input[type=submit]:hover,
 
 .botChat {
     border-radius: 0 0 10px 10px;
-    padding: 25px;
+    padding: 10px;
     margin: 0 10px 0 5px;
     text-align: left;
     background: #f4f6ff;
     display: inline-block;
     max-width: 50vw;
+
 }
 
 #botImage,
@@ -289,12 +299,14 @@ input[type=submit]:hover,
 
 /*Calculator*/
 #calculatorOutput {
+    background: white;
     border-radius: 2.5px;
     padding: 2.5px;
     height: 20px;
-    width: 210px;
     margin: 2.5px;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    overflow: hidden;
+    max-width: 160px;
 }
 
 #calculatorWarning {
@@ -303,13 +315,13 @@ input[type=submit]:hover,
 }
 
 .calculatorButton {
-    width: 50px;
-    height: 25px;
-    margin: 2.5px;
     border-radius: 5px;
+    width: 40px;
+    height: 25px;
+    margin: 1px;
     border-color: white;
-    background: #3282b8;
     color: white;
+    background-image: linear-gradient(109.6deg, rgba(121, 203, 202, 1) 11.2%, rgba(119, 161, 211, 1) 91.1%);
 }
 
 /*Pythagorean*/
