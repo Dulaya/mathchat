@@ -41,7 +41,8 @@ class Tools extends React.Component {
             height: '100%',
             padding: '10px',
             position: 'fixed',
-            textAlign: 'center',
+            textAlign: 'left',
+            width: '200px',
             zIndex: '1',
         };
 

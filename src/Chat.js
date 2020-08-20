@@ -48,7 +48,7 @@ class Bubble extends React.Component {
       <div id="bubbleCover">
         <div id="botCover">
           <img id="botImage" src="images/robot.svg" alt="Bot: " />
-          <div className="bubble botChat" style={{ borderRadius: "10px" }}>
+          <div className="bubble botChat" style={{ borderRadius: "10px", marginTop: '10px',}}>
             Hello, World! Math Chat is a tool for helping students with math homework. Ask me a math topic. Example: distance, pythagorean, logarithm...
             </div>
         </div>
@@ -189,6 +189,10 @@ class Chat extends React.Component {
       document.getElementById('toolCover').style.opacity = '0';
       document.getElementById('toolCover').style.zIndex = '-1';
       this.setState({ toggleCalculator: 'hide', toolButton: 'fas fa-bars fa-2x' });
+
+      //Move Chat Bubble Cover back to original place
+      document.getElementById('bubbleCover').style.transition = 'margin-left 1s';
+      document.getElementById('bubbleCover').style.marginLeft = '0px';
     }
     else {
       document.getElementById('toolCover').style.transition = 'opacity 1s, width 1s';
@@ -196,6 +200,10 @@ class Chat extends React.Component {
       document.getElementById('toolCover').style.opacity = '1';
       document.getElementById('toolCover').style.zIndex = '1';
       this.setState({ toggleCalculator: 'show', toolButton: 'fas fa-times fa-2x' });
+
+      //Move Chat Bubble Cover right 200px
+      document.getElementById('bubbleCover').style.transition = 'margin-left 1s';
+      document.getElementById('bubbleCover').style.marginLeft = '200px';
     }
   }
 
@@ -213,11 +221,12 @@ class Chat extends React.Component {
           <div id='toolCover' style={{ opacity: '0', }}>
             <Tools />
           </div>
-
-          <Bubble
-            item={this.state.current_chat}
-            delete={this.delete}
-          />
+          <div id='bubbleCover'>
+            <Bubble
+              item={this.state.current_chat}
+              delete={this.delete}
+            />
+          </div>
         </div>
         <div id='bottomCoverOuter'>
           <div id='bottomCover'>
