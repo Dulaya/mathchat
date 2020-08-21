@@ -39,7 +39,6 @@ class Tools extends React.Component {
             boxShadow: '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)',
             display: 'inline-block',
             height: '100%',
-            padding: '10px',
             position: 'fixed',
             textAlign: 'left',
             width: '200px',
@@ -47,16 +46,19 @@ class Tools extends React.Component {
         };
 
         const calculatorMenuButton = {
-            color: '#127681',
+            color: '#595238',
             cursor: 'pointer',
+            padding: '10px',
+            margin: '0',
+            width: '180px',
         }
-
 
         return (
             <div>
                 <div style={toolsStyle} >
-                    <div onClick={this.toggleCalculator.bind(this)}>
-                        <i style={calculatorMenuButton} className="fas fa-calculator"> Calculator</i>
+                    <div style={calculatorMenuButton} onClick={this.toggleCalculator.bind(this)} >
+                        <i className="fas fa-calculator" ></i>
+                        <span style={{ display: 'inline-block', margin: '0 10px', }}>Calculator</span>
                     </div>
                     <div id='calculatorCover' style={{ opacity: '0' }} >
                         <Calculator />

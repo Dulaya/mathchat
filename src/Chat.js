@@ -18,9 +18,10 @@ import './App.css';
 
 class Menu extends React.Component {
   topic = (id) => { this.props.topic(id) }
+
   render() {
     return (
-      <div>
+      <div id='menu'>
         Valid Inputs: Menu, Calculator, Distance, Pythagorean, Combination, Logarithm, Pemdas, Permutation, Pi, Quadratic, FOIL, Unit Circle
       </div>
     )
@@ -35,7 +36,10 @@ class Bubble extends React.Component {
   } 
   ***/
 
-  delete = (id) => { this.props.delete(id) } //Delete inividual chat bubble; passed from Chat as props
+  //Delete inividual chat bubble; passed from Chat (Parent) as props
+  delete = (id) => {
+    this.props.delete(id)
+  }
 
   topic = (input) => {
     input = input.toLowerCase() //Convert input to lowercase
@@ -48,7 +52,7 @@ class Bubble extends React.Component {
       <div id="bubbleCover">
         <div id="botCover">
           <img id="botImage" src="images/robot.svg" alt="Bot: " />
-          <div className="bubble botChat" style={{ borderRadius: "10px", marginTop: '10px',}}>
+          <div className="bubble botChat" style={{ borderRadius: "10px", marginTop: '10px', }}>
             Hello, World! Math Chat is a tool for helping students with math homework. Ask me a math topic. Example: distance, pythagorean, logarithm...
             </div>
         </div>
@@ -109,8 +113,8 @@ class Bubble extends React.Component {
                 </div>
               </div>
             </div>
-
-          </div>)}
+          </div>
+          )}
       </div>
     )
   }
@@ -121,9 +125,9 @@ class Chat extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      current_chat: [],
+      currentChat: ['menu'],
       toolButton: 'fas fa-bars fa-2x',
-      toggleCalculator: 'hide'
+      toggleCalculator: 'hide',
     }
   }
 
@@ -142,42 +146,45 @@ class Chat extends React.Component {
     });
   }
 
-  submit = () => { //Submit user input
-    var user_input = document.getElementById("userInput").value;
-    user_input = user_input.toLowerCase();
+  //Submit user input
+  submit = () => {
+    var userInput = document.getElementById("userInput").value;
+    userInput = userInput.toLowerCase();
 
-    if (user_input.replace(/\s/g, "") === "") {
+    if (userInput.replace(/\s/g, "") === "") {
       //Warning for empty input
       //Also acts as a counter measure for preventing double chatbox
     }
 
     else {
-      //Check if user_input is in this.state.current_chat. If so, replace with new one. 
+      //Check if userInput is in this.state.currentChat. If so, replace with new one. 
       //Do this because multiple components (e.g. distances) does work with many values 
-      if (this.state.current_chat.includes(user_input) === true) {
-        const temp_array = this.state.current_chat;
-        const index = temp_array.indexOf(user_input);
-        if (index > -1) { temp_array.splice(index, 1) }
-        this.setState({ current_chat: temp_array })
+      if (this.state.currentChat.includes(userInput) === true) {
+        const tempArray = this.state.currentChat;
+        const index = tempArray.indexOf(userInput);
+        if (index > -1) { tempArray.splice(index, 1) }
+        this.setState({ currentChat: tempArray })
       }
       this.setState((prevState) => ({
-        current_chat: [...prevState.current_chat, user_input] //Using spread syntax to append current_chat array
+        //Using spread syntax to append currentChat array
+        currentChat: [...prevState.currentChat, userInput]
       }), function () {
+        //Set input bar to blank after submit; use call back function due Asynch
         document.getElementById("userInput").value = '';
         window.scrollTo(0, document.body.scrollHeight);
-      }) //Set input bar to blank after submit; call back funct due Asynch
+      })
     }
   }
 
   delete = (id) => { //Delete inividual chat bubble; pass this function down to Bubble component as props
-    const temp_array = this.state.current_chat; //Temp array copy of this.state
-    const index = temp_array.indexOf(temp_array[id]); //Find value of index 'id' and use splice() to remove from temp_array
+    const tempArray = this.state.currentChat; //Temp array copy of this.state
+    const index = tempArray.indexOf(tempArray[id]); //Find value of index 'id' and use splice() to remove from tempArray
     if (index > -1) {
-      temp_array.splice(index, 1);
+      tempArray.splice(index, 1);
     }
 
-    this.setState(prevState => ({ //Change this.state from initial array to temp_array
-      current_chat: temp_array
+    this.setState(prevState => ({ //Change this.state from initial array to tempArray
+      currentChat: tempArray
     }));
   }
 
@@ -190,7 +197,7 @@ class Chat extends React.Component {
       document.getElementById('toolCover').style.zIndex = '-1';
       this.setState({ toggleCalculator: 'hide', toolButton: 'fas fa-bars fa-2x' });
 
-      //Move Chat Bubble Cover back to original place
+      //Move Chat Bubble Cover back to original place using CSS transition for smooth movement
       document.getElementById('bubbleCover').style.transition = 'margin-left 1s';
       document.getElementById('bubbleCover').style.marginLeft = '0px';
     }
@@ -201,14 +208,14 @@ class Chat extends React.Component {
       document.getElementById('toolCover').style.zIndex = '1';
       this.setState({ toggleCalculator: 'show', toolButton: 'fas fa-times fa-2x' });
 
-      //Move Chat Bubble Cover right 200px
+      //Move Chat Bubble Cover right 200px using CSS transition for smooth movement
       document.getElementById('bubbleCover').style.transition = 'margin-left 1s';
       document.getElementById('bubbleCover').style.marginLeft = '200px';
     }
   }
 
   //Clear all chats, i.e. empty state
-  clear = () => { this.setState({ current_chat: [] }) }
+  clear = () => { this.setState({ currentChat: [] }) }
 
   render() { //
     return (
@@ -223,7 +230,7 @@ class Chat extends React.Component {
           </div>
           <div id='bubbleCover'>
             <Bubble
-              item={this.state.current_chat}
+              item={this.state.currentChat}
               delete={this.delete}
             />
           </div>
