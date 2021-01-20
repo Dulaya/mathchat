@@ -243,17 +243,17 @@ class Chat extends React.Component {
               <button id="submitButton" onClick={this.clear} style={{ background: 'red' }}><i className="far fa-trash-alt fa-sm"></i></button>
             </div>
             <div id="menuButtonCover">
-              <button onClick={this.conceptButton.bind(this, "Menu")}>Menu</button>
-              <button onClick={this.conceptButton.bind(this, "Distance")}>Distance</button>
-              <button onClick={this.conceptButton.bind(this, "Logarithm")}>Logarithm</button>
-              <button onClick={this.conceptButton.bind(this, "Pythagorean")}>Pythagorean</button>
-              <button onClick={this.conceptButton.bind(this, "Permutation")}>Permutation</button>
-              <button onClick={this.conceptButton.bind(this, "Combination")}>Combination</button>
-              <button onClick={this.conceptButton.bind(this, "Pemdas")}>PEMDAS</button>
-              <button onClick={this.conceptButton.bind(this, "π")}>π</button>
-              <button onClick={this.conceptButton.bind(this, "Quadratic")}>Quadratic</button>
-              <button onClick={this.conceptButton.bind(this, "FOIL")}>FOIL</button>
-              <button onClick={this.conceptButton.bind(this, "Unit circle")}>Unitcircle</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "Menu")}>Menu</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "Distance")}>Distance</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "Logarithm")}>Logarithm</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "Pythagorean")}>Pythagorean</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "Permutation")}>Permutation</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "Combination")}>Combination</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "Pemdas")}>PEMDAS</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "π")}>π</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "Quadratic")}>Quadratic</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "FOIL")}>FOIL</button>
+              <button id='conceptButton' onClick={this.conceptButton.bind(this, "Unit circle")}>Unitcircle</button>
             </div>
             <div id="warning"></div>
           </div>
